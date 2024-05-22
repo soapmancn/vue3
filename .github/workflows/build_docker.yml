@@ -35,3 +35,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/vue3:latest
+
+      - run: |
+          echo 发送Webhook请求
+          curl -X POST -H "Content-Type: application/json" http://${{ secrets.HOME_IP }}:9900/api/stacks/webhooks/042e11bc-1b5d-43d6-af18-2892393aa39c
